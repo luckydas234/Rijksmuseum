@@ -30,7 +30,7 @@ public class WeatherTest {
 
 		new OpenWeatherController().tempratureSearchByCityNameController(sTempinCelcius, weather);
 
-		new WeatherComparator().compareCityTempratue(weather);
+		new WeatherComparator().compareCityTemprature(weather);
 	}
 
 	@AfterTest

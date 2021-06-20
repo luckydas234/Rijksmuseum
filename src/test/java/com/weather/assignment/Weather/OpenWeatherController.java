@@ -16,6 +16,7 @@ public class OpenWeatherController {
 
 	public void tempratureSearchByCityNameController(String sTempinCelcius, WeatherPOJO weather) throws Exception {
 		try {
+			logger.info("Start Testcase ==>API tempratureSearchCity");
 			this.CityName = ConfigReader.getProperty("API.properties", "CITY");
 			this.APIKey = ConfigReader.getProperty("API.properties", "APIKEY");
 			this.statuscode = Integer.parseInt(ConfigReader.getProperty("API.properties", "STATUSCODE"));
@@ -39,7 +40,7 @@ public class OpenWeatherController {
 			weather.setApiTemprature(
 					Integer.parseInt(response.getBody().jsonPath().get("main.temp").toString().substring(0, 2)));
 			weather.setApiCity(response.getBody().jsonPath().get("name").toString());
-
+			logger.info("Finish Testcase ==>API tempratureSearchCity");
 		} catch (Exception e) {
 			throw new Exception("Error occured in tempratureSearchByCityNameController" + e.getMessage());
 		}

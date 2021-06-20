@@ -22,6 +22,7 @@ public class NdtvController {
 	public void tempratureSearchCityController(RemoteWebDriver driver, WeatherPOJO weather, String sTempinFarnhite)
 			throws Exception {
 		try {
+			logger.info("Start Testcase ==>UI tempratureSearchCity");
 			NdtvHomePages homepages = new NdtvHomePages(driver);
 			NdtvWeatherPages weatherpages = new NdtvWeatherPages(driver);
 			homepages.clickOnPopupCancelButton();
@@ -45,6 +46,7 @@ public class NdtvController {
 			logger.info("City Name on Map " + sCityUI);
 			Assert.assertEquals(sInputCity, sCityUI, "City name displayed properly");
 			weather.setUiCity(sCityUI);
+			logger.info("Finish Testcase ==>UI tempratureSearchCity");
 		} catch (Exception e) {
 			throw new Exception("Error occured in tempratureSearchCityController " + e.getMessage());
 		}
