@@ -24,26 +24,27 @@ public class NdtvController {
 		try {
 			NdtvHomePages homepages = new NdtvHomePages(driver);
 			NdtvWeatherPages weatherpages = new NdtvWeatherPages(driver);
-			weather=new WeatherPOJO();
 			homepages.clickOnPopupCancelButton();
 			homepages.clickOnExpandSubMenu();
 			homepages.clickOnWeatherSubMenu();
+
 			weatherpages.uncheckExistingCities();
 			this.sInputCity = ConfigReader.getProperty("UI.properties", "City");
 			weatherpages.searchRequiredCity(sInputCity);
 			weatherpages.checkRequiredCity(sInputCity);
-			
+
 			String sTempinCelcius = weatherpages.getTempInCentigrade();
 			logger.info("Temprature in Celcius" + sTempinCelcius);
 			Assert.assertNotNull(sTempinCelcius);
-			weather.setUiTemprature(Integer.parseInt(sTempinCelcius.substring(0, sTempinCelcius.length() - 1) ));
-			sTempinFarnhite = weatherpages.getTempInCentigrade();
+
+			weather.setUiTemprature(Integer.parseInt(sTempinCelcius.substring(0, sTempinCelcius.length() - 1)));
+			sTempinFarnhite = weatherpages.getTempInFarenhite();
 			logger.info("Temprature in Farenhite" + sTempinFarnhite);
 			Assert.assertNotNull(sTempinFarnhite);
-			String sCityUI=weatherpages.getCityNameOnMap();
+			String sCityUI = weatherpages.getCityNameOnMap();
 			logger.info("City Name on Map " + sCityUI);
 			Assert.assertEquals(sInputCity, sCityUI, "City name displayed properly");
-		    weather.setApiCity(sCityUI);
+			weather.setUiCity(sCityUI);
 		} catch (Exception e) {
 			throw new Exception("Error occured in tempratureSearchCityController " + e.getMessage());
 		}
