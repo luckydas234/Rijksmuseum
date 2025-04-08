@@ -1,4 +1,4 @@
-# REQRES-ASSIGNMENT
+# RIJKSMUSEUM-ASSIGNMENT
 
 ====================
 
