@@ -4,12 +4,12 @@
  
   <test name = "ClassOne">
     <classes>
-      <class name="com.weather.assignment.Weather.WeatherTest"/>
+      <class name="com.asignment.reqres.RijksmuseumTest.java"/>
     </classes>
   </test> <!-- Test -->
   <test name = "ClassOne">
     <classes>
-      <class name="com.weather.assignment.Weather.WeatherTest"/>
+      <class name="com.asignment.reqres.RijksmuseumTest.java"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

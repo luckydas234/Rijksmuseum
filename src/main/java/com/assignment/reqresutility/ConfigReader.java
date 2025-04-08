@@ -1,5 +1,4 @@
-package com.weather.assignment.Weather;
-
+package com.assignment.reqresutility;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -7,10 +6,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 
-
 public class ConfigReader {
 
-	
 	private static HashMap<String, String> configMap = null;
 	private static Map<String, Map<String, String>> propertyCache = null;
 
@@ -39,7 +36,7 @@ public class ConfigReader {
 
 		if (propertyCache.get(propertyFileName) == null) {
 			loadProperties(propertyFileName);
-			
+
 		}
 		return propertyCache.get(propertyFileName);
 	}
@@ -47,7 +44,7 @@ public class ConfigReader {
 	private static void loadProperties(String propertyFileName) {
 		Properties propertyFile = new Properties();
 		try {
-			//System.out.println(propertyFileName);
+			// System.out.println(propertyFileName);
 			propertyFile.load(ConfigReader.class.getClassLoader().getResourceAsStream(propertyFileName));
 			Map<String, String> propertyFileData = new HashMap<String, String>();
 			for (Entry<Object, Object> keyValEntry : propertyFile.entrySet()) {
@@ -61,11 +58,8 @@ public class ConfigReader {
 		}
 	}
 
-
-
 	public static String getConfig(String key) {
 		return configMap.get(key);
 	}
 
-	
 }

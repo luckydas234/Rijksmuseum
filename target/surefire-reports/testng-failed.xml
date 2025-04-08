@@ -3,13 +3,12 @@
 <suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="com.weather.assignment.Weather.WeatherTest">
+      <class name="com.asignment.reqres.RijksmuseumTest">
         <methods>
-          <include name="teardown"/>
+          <include name="main"/>
           <include name="setup"/>
-          <include name="tempCompareTest"/>
         </methods>
-      </class> <!-- com.weather.assignment.Weather.WeatherTest -->
+      </class> <!-- com.asignment.reqres.RijksmuseumTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->
